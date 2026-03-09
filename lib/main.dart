@@ -41,7 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
         width: 300,
         height: 300,
         color: Colors.blue,
-        child: Container(width: 100, height: 100, color: Colors.red),
+        child: Center(
+          // Step 2. 중재자 등장!(Center)
+          child: Container(width: 100, height: 100, color: Colors.red),
+        ),
       ),
     );
   }
