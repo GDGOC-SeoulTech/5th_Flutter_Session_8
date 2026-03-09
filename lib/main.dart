@@ -34,17 +34,19 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      // 여기부터! 해봅시다.
-      // 우리의 예상대로라면, 300x300 파란 박스 속에 100x100짜리 빨간 박스가 생겨야 합니다.
-      // 앱 실행시, 어떤 화면이 보이시나요? 예상대로 되었나요?
-      body: Container(
-        width: 300,
-        height: 300,
-        color: Colors.blue,
-        child: Center(
-          // Step 2. 중재자 등장!(Center)
-          child: Container(width: 100, height: 100, color: Colors.red),
-        ),
+      // 다시 body부분을 바꿔봅시다.
+      body: Column(
+        // 여기서는 우리의 예상대로라면
+        // "포켓몬 도감" 텍스트가 아래로 세로 스크롤되는 리스트 20개가 떠야 하겠군요.
+        children: [
+          const Text('포켓몬 도감', style: TextStyle(fontSize: 24)),
+          ListView.builder(
+            itemCount: 20,
+            itemBuilder: (context, index) {
+              return ListTile(title: Text('포켓몬 $index'));
+            },
+          ),
+        ],
       ),
     );
   }
